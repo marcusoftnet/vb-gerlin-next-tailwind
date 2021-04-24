@@ -7,9 +7,11 @@ export default function Home() {
         <title>Jehrin - VasaBand music library</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
       <main className='flex-grow justify-center items-center'>
-        <h1>Content</h1>
+        <h1>Content goes here</h1>
       </main>
+
       <footer>
         <a
           href='https://www.vasaband.se'
