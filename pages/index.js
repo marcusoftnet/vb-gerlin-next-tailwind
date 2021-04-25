@@ -1,6 +1,10 @@
 import Head from 'next/head';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 
 export default function Home() {
+  const [authUser] = useAuthState(auth);
+
   return (
     <div className='flex flex-col min-h-screen'>
       <Head>
@@ -9,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main className='flex-grow justify-center items-center'>
-        <h1>Content goes here</h1>
+        <h1>{authUser.email} is logged in</h1>
       </main>
 
       <footer>
