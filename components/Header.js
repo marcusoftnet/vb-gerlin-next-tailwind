@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className='flex flex-col sm:flex-row m-5 justify-between items-end h-auto'>
+    <header className='flex flex-col sm:flex-row m-5 justify-between items-center h-auto'>
       <div className='flex flex-grow justify-evenly max-w-2xl'>
         <HeaderItem title='HOME' Icon={HomeIcon} action={goHome} />
         <HeaderItem title='SEARCH' Icon={SearchIcon} action={goHome} />

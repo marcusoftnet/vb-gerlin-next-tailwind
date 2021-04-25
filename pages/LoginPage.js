@@ -37,6 +37,7 @@ const LoginPage = () => {
           <form className='flex flex-col m-5 justify-center'>
             <input
               className='mt-2'
+              autoFocus
               type='text'
               placeholder='email'
               value={email}
@@ -49,7 +50,7 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={signIn} type='submit' className='mt-5 bg-blue-700'>
+            <button onClick={signIn} type='submit' className='mt-5'>
               Login
             </button>
           </form>

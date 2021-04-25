@@ -13,6 +13,9 @@
     @apply bg-[#1a3b5f] text-white;
   }
   input {
-    @apply text-black
+    @apply text-black;
+  }
+  button {
+    @apply bg-blue-800
   }
 }
