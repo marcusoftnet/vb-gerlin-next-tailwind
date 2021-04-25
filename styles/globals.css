@@ -10,6 +10,9 @@
 
 @layer base {
   body {
-    @apply bg-[#1a3b5f];
+    @apply bg-[#1a3b5f] text-white;
+  }
+  input {
+    @apply text-black
   }
 }
