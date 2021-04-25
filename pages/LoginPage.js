@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -20,13 +21,18 @@ const LoginPage = () => {
 
   return (
     <div className='flex flex-col h-screen justify-between'>
-      <head>
+      <Head className='h-10'>
         <title>Jehrin - Login</title>
-      </head>
+      </Head>
 
-      <main className='flex items-center justify-center mb-auto'>
-        <div className='container flex flex-col justify-center w-1/2 h-screen'>
-          <Image src='/../public/logo_vasaband.png' width={350} height={200} />
+      <main className='flex items-center justify-center mb-auto h-screen'>
+        <div className='container flex flex-col justify-center w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4'>
+          <Image
+            src='/../public/logo_vasaband.png'
+            className='object-contain max-w-2xl'
+            width={200}
+            height={100}
+          />
 
           <form className='flex flex-col m-5 justify-center'>
             <input
