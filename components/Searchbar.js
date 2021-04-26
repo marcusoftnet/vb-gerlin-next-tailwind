@@ -5,24 +5,24 @@ const Searchbar = ({
   setSearchString,
 }) => {
   return (
-    <div className='flex flex-col'>
+    <form onSubmit={handleSearch}  className='flex flex-col m-5'>
       <input
         type='text'
-        className='ml-5 text-4xl w-full p-2'
+        className='text-4xl'
         autoFocus
         placeholder='Search for music'
         value={searchString}
         onChange={(e) => setSearchString(e.target.value)}
-      />
-      <div className='mt-5 flex justify-end '>
-        <button type='submit' className='p-2 text-4xl' onClick={handleSearch}>
+        />
+      <div className='mt-2 flex justify-end'>
+        <button type='submit' className='p-2' onClick={handleSearch}>
           Search
         </button>
-        <button className='p-2 text-4xl ml-4' onClick={handleClear}>
+        <button className='p-2 ml-4' onClick={handleClear}>
           Clear
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

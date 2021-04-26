@@ -7,7 +7,8 @@ const Search = () => {
   const [searchString, setSearchString] = useState('');
   const [searchResult, setSearchResult] = useState(null);
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault();
     if (searchString.length > 0) {
       const result = await searchMusic(searchString);
       setSearchResult(result);
