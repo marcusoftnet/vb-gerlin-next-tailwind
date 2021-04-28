@@ -11,12 +11,14 @@ const SearchResults = ({ searchResult }) => {
 
   return (
     <div className='ml-5'>
-      <div className='grid grid-flow-col grid-cols-4 gap-4'>
-        <div className='text-2xl'>Number</div>
-        <div className='text-2xl'>Type</div>
-        <div className='text-2xl'>Title</div>
-        <div className='text-2xl'>Composer</div>
-      </div>
+      {materials && (
+        <div className='grid grid-flow-col grid-cols-4 gap-4'>
+          <div className='text-2xl'>Number</div>
+          <div className='text-2xl'>Title</div>
+          <div className='text-2xl'>Type</div>
+          <div className='text-2xl'>Composer</div>
+        </div>
+      )}
       {materials?.map((material) => (
         <div
           key={material.id}
@@ -24,8 +26,8 @@ const SearchResults = ({ searchResult }) => {
           onClick={() => showMaterial(material.id)}
         >
           <div>{material.seriesNumber}</div>
-          <div>{material.type}</div>
           <div>{material.title}</div>
+          <div>{material.type}</div>
           <div>{material.composer}</div>
         </div>
       ))}
