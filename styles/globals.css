@@ -13,7 +13,7 @@
     @apply bg-[#1a3b5f] text-gray-300;
   }
   input {
-    @apply bg-[#1a3b5f] border-gray-200 border-b text-gray-300;
+    @apply bg-[#1a3b5f] border-gray-200 border-b text-gray-300 focus:outline-none;
   }
   button {
     @apply bg-[#1a3b5f] border-gray-200 border rounded-lg text-gray-300 text-2xl;
