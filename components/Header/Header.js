@@ -7,12 +7,11 @@ import {
 } from '@heroicons/react/outline';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import HeaderItem from './HeaderItem';
 
 const Header = () => {
   const router = useRouter();
-
   const goHome = () => router.push('/');
   const goSearch = () => router.push('/');
   const addMaterial = () => router.push('/');

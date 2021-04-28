@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Header from '../components/Header';
-import Search from '../components/Search';
+import Header from '../components/Header/Header';
+import Search from '../components/Search/Search';
 import VasaFooter from '../components/VasaFooter';
 import { auth } from '../firebase';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { searchMusic } from '../lib/queries';
+import { searchMusic } from '../../lib/queries';
 import Searchbar from './Searchbar';
 import SearchResults from './SearchResults';
 
