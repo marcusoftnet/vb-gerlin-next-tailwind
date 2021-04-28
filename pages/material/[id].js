@@ -61,7 +61,9 @@ const ShowMaterial = () => {
             <Loading />
           ) : (
             <div>
-              <button onClick={goBack}>Back</button>
+              <button className='ml-5 p-2' onClick={goBack}>
+                Back
+              </button>
               <Material
                 material={material}
                 handleStateChange={handleStateChange}
