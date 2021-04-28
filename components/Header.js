@@ -31,7 +31,7 @@ const Header = () => {
       </div>
       <Image
         className='object-contain'
-        src='/../public/logo_vasaband.png'
+        src='/logo_vasaband.png'
         width={160}
         height={80}
       />
