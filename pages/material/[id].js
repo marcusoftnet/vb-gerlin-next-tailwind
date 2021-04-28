@@ -43,7 +43,11 @@ const ShowMaterial = () => {
   };
 
   const goBack = () => {
-    router.push(`/search/?searchString=${router.query.searchString}`);
+    let query = '';
+    if (router.query.searchString) {
+      query = `?searchString=${router.query.searchString}`;
+    }
+    router.push(`/search/${query}`);
   };
 
   return (
