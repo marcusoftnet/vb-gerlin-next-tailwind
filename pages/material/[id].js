@@ -42,6 +42,10 @@ const ShowMaterial = () => {
     setLoading(false);
   };
 
+  const goBack = () => {
+    router.push(`/search/?searchString=${router.query.searchString}`);
+  };
+
   return (
     <div className='flex flex-col h-screen justify-between'>
       <Head className='h-10'>
@@ -57,6 +61,7 @@ const ShowMaterial = () => {
             <Loading />
           ) : (
             <div>
+              <button onClick={goBack}>Back</button>
               <Material
                 material={material}
                 handleStateChange={handleStateChange}

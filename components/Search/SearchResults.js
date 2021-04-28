@@ -3,17 +3,16 @@ import useWindowSize from '../../hooks/useWindowSize';
 import SearchResultsLarge from './SearchResultsLarge';
 import SearchResultsSmall from './SearchResultsSmall';
 
-const SearchResults = ({ searchResult }) => {
+const SearchResults = ({ searchResult, searchString }) => {
+  const windowSize = useWindowSize();
   const router = useRouter();
   const materials = searchResult?.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   }));
 
-  const windowSize = useWindowSize();
-  console.log(windowSize); //768px
-
-  const showMaterial = (materialId) => router.push(`/material/${materialId}`);
+  const showMaterial = (materialId) =>
+    router.push(`/material/${materialId}?searchString=${searchString}`);
 
   return (
     <div className='ml-5'>

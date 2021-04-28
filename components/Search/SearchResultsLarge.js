@@ -1,4 +1,4 @@
-const SearchResultsLarge = ({ materials }) => {
+const SearchResultsLarge = ({ materials, showMaterial }) => {
   const rowColor = (rowIndex) => {
     return rowIndex % 2 === 0 ? 'bg-[#3d556e]' : '';
   };

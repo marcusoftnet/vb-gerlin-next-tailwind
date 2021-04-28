@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { searchMusic } from '../../lib/queries';
 import Searchbar from './Searchbar';
 import SearchResults from './SearchResults';
 
 const Search = () => {
-  const [searchString, setSearchString] = useState('');
+  const router = useRouter();
+  const [searchString, setSearchString] = useState(
+    router.query.searchString || ''
+  );
   const [searchResult, setSearchResult] = useState(null);
+
+  useEffect(async () => {
+    if (searchString !== '') {
+      const result = await searchMusic(searchString);
+      setSearchResult(result);
+    }
+  }, [router.query.searchString]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -18,6 +29,7 @@ const Search = () => {
   const handleClear = () => {
     setSearchResult(null);
     setSearchString('');
+    router.push('/search');
   };
 
   return (
@@ -28,7 +40,7 @@ const Search = () => {
         searchString={searchString}
         setSearchString={setSearchString}
       />
-      <SearchResults searchResult={searchResult} />
+      <SearchResults searchResult={searchResult} searchString={searchString} />
     </div>
   );
 };

@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Header from '../components/Header/Header';
-import VasaFooter from '../components/VasaFooter';
-import { auth } from '../firebase';
+import Header from '../../components/Header/Header';
+import Search from '../../components/Search/Search';
+import VasaFooter from '../../components/VasaFooter';
+import { auth } from '../../firebase';
 
-export default function Home() {
+export default function SearchPage() {
   const [authUser] = useAuthState(auth);
 
   return (
@@ -16,6 +17,7 @@ export default function Home() {
 
       <main className='mb-auto'>
         <Header />
+        <Search />
       </main>
 
       <VasaFooter className='h-10' />

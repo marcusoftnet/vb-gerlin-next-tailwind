@@ -13,8 +13,8 @@ import HeaderItem from './HeaderItem';
 const Header = () => {
   const router = useRouter();
   const goHome = () => router.push('/');
-  const goSearch = () => router.push('/');
-  const addMaterial = () => router.push('/');
+  const goSearch = () => router.push('/search');
+  const addMaterial = () => router.push('/material');
   const logOut = () => {
     auth.signOut();
   };
@@ -23,7 +23,7 @@ const Header = () => {
     <header className='flex flex-col sm:flex-row m-5 justify-between items-center h-auto'>
       <div className='flex flex-grow justify-evenly max-w-2xl'>
         <HeaderItem title='HOME' Icon={HomeIcon} action={goHome} />
-        <HeaderItem title='SEARCH' Icon={SearchIcon} action={goHome} />
+        <HeaderItem title='SEARCH' Icon={SearchIcon} action={goSearch} />
         <HeaderItem title='ACCOUNT' Icon={UserIcon} action={goHome} />
         <HeaderItem title='ADD' Icon={DocumentAddIcon} action={addMaterial} />
         <HeaderItem title='LOGOUT' Icon={LogoutIcon} action={logOut} />
