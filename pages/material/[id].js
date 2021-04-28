@@ -1,15 +1,19 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
+import Material from '../../components/Material';
 import VasaFooter from '../../components/VasaFooter';
-import { getMaterialById } from '../../lib/queries';
+import { auth } from '../../firebase';
+import { getMaterialById, updateMaterialData } from '../../lib/queries';
 
 const ShowMaterial = () => {
-  const [material, setMaterial] = useState(null);
+  const [material, setMaterial] = useState();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [user] = useAuthState(auth);
 
   useEffect(async () => {
     setLoading(true);
@@ -22,10 +26,21 @@ const ShowMaterial = () => {
     setMaterial(m);
     setLoading(false);
 
-    return () => {
-      setMaterial(null);
-    };
+    return () => setMaterial(null);
   }, [router.query.id]);
+
+  const handleStateChange = (e) =>
+    setMaterial((currState) => ({
+      ...currState,
+      [e.target.name]: e.target.value,
+    }));
+
+  const saveMaterial = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    await updateMaterialData(material, user);
+    setLoading(false);
+  };
 
   return (
     <div className='flex flex-col h-screen justify-between'>
@@ -37,7 +52,19 @@ const ShowMaterial = () => {
       <main className='mb-auto'>
         <Header />
 
-        <div>{loading ? <Loading /> : <div>{material.title}</div>}</div>
+        <div>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div>
+              <Material
+                material={material}
+                handleStateChange={handleStateChange}
+                saveMaterial={saveMaterial}
+              />
+            </div>
+          )}
+        </div>
       </main>
 
       <VasaFooter className='h-10' />
